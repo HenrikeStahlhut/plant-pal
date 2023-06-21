@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+//
+// ABOVE IS THE NO NO ZONE
+//
+
+model Plant {
+  id String @id @default(uuid())
+
+  name String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+// TODO: Room
+
+// pnpx prisma migrate dev

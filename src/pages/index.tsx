@@ -1,9 +1,14 @@
+import styles from "@/styles/Home.module.css";
+import { Inter } from "next/font/google";
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import styled from "styled-components";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const StyledDiv = styled.div`
+  color: red;
+`;
 
 export default function Home() {
   return (
@@ -15,6 +20,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
+        <StyledDiv>test</StyledDiv>
+
         <div className={styles.description}>
           <p>
             Get started by editing&nbsp;
