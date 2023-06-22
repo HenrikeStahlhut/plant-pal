@@ -14,7 +14,20 @@ datasource db {
 model Plant {
   id String @id @default(uuid())
 
-  name String
+  name   String
+  Room   Room?   @relation(fields: [roomId], references: [id])
+  roomId String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Room {
+  id String @id @default(uuid())
+
+  name     String
+  roomType String
+  plants   Plant[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
