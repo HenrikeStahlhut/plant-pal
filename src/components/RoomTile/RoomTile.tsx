@@ -1,33 +1,25 @@
 import Image from "next/image";
+import { RoomTileCaption, RommTileImage } from "./RoomTile.styled";
+import Link from "next/link";
+import { WrapperLink } from "../WrapperLink/WrapperLink.styled";
+import { Room, RoomType } from "@prisma/client";
 
-interface roomPops {
-  title: string;
-  type: string;
-}
+type RoomTileProps = {
+  room: Room;
+};
 
-export const RoomType = Object.freeze({
-  INVALID: "INVALID",
-  KITCHEN: "KITCHEN",
-  LIVING_ROOM: "LIVING_ROOM",
-  BEDROOM: "BEDROOM",
-  BATHROOM: "BATHROOM",
-  DINING_ROOM: "DINING_ROOM",
-  HALLWAY: "HALLWAY",
-  OFFICE: "OFFICE",
-});
-
-export default function RoomTile({ title, type }: roomPops) {
+export default function RoomTile({ room }: RoomTileProps) {
   return (
     <>
-      <Image
-        src={`/rooms/${type}.png`}
-        alt={`Image of ${title}`}
-        width={150}
-        height={150}
-      />
-      <p>{title}</p>
+      <WrapperLink href={"/"}>
+        <RommTileImage
+          src={`/rooms/${room.type}.png`}
+          alt={`Image of ${room.name}`}
+          width={130}
+          height={130}
+        />
+        <RoomTileCaption>{room.name}</RoomTileCaption>
+      </WrapperLink>
     </>
   );
 }
-
-// TODO: style image caption and images in styled components file

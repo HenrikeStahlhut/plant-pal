@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-export default createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 
 :root{
   --white: #FFFFFF;
@@ -9,7 +9,6 @@ export default createGlobalStyle`
   --highlight-green: #9BA55F;
   --beige: #FFF8ED;
   --background-green: #EEF2E5;
-  --error: ##eb4034;
 }
 
   *,
@@ -21,7 +20,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: system-ui;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: var(--background-green);
   }
 

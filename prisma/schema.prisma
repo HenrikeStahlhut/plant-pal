@@ -11,6 +11,17 @@ datasource db {
 // ABOVE IS THE NO NO ZONE
 //
 
+enum RoomType {
+  INVALID
+  KITCHEN
+  LIVING_ROOM
+  BEDROOM
+  BATHROOM
+  DINING_ROOM
+  HALLWAY
+  OFFICE
+}
+
 model Plant {
   id String @id @default(uuid())
 
@@ -25,9 +36,9 @@ model Plant {
 model Room {
   id String @id @default(uuid())
 
-  name     String
-  roomType String
-  plants   Plant[]
+  name   String
+  type   RoomType
+  plants Plant[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
