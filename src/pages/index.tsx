@@ -2,6 +2,7 @@ import Link from "next/link";
 import Menu from "@/components/Menu/Menu";
 import Header from "@/components/Header/Header";
 import Greeting from "@/components/Greeting/Greeting";
+import Subheadline from "@/components/Subheadline/Subheadline";
 
 export default function Home() {
   return (
@@ -10,7 +11,11 @@ export default function Home() {
         <Greeting />
         <Menu />
       </Header>
-      <Link href={"/rooms/all"}> go to rooms</Link>
+
+      <main>
+        <Subheadline>Todays Todo</Subheadline>
+        <Subheadline>Upcoming Todo</Subheadline>
+      </main>
     </>
   );
 }
