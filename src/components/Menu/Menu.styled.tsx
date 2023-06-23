@@ -2,6 +2,10 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export const StyledMenu = styled.nav<{ open: boolean }>`
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+
   top: 0;
   right: 0;
   height: 100vh;

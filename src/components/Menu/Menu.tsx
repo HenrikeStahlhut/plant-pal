@@ -14,6 +14,8 @@ export default function Navigation() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  // TODO: add Profile to menu
+
   return (
     <>
       <MenuButton open={menuOpen} setOpen={setMenuOpen} />
@@ -31,24 +33,4 @@ export default function Navigation() {
       </StyledMenu>
     </>
   );
-
-  // return (
-  //   <>
-  //     <StyledOpenMenuButton onClick={openMenu}>
-  //       <TbMenu2 onClick={openMenu} />
-  //     </StyledOpenMenuButton>
-  //     {menuOpen && (
-  //       <>
-  //         <StyledMenu open={menuOpen}>
-  //           <StyledCloseMenuButton onClick={openMenu}>
-  //             <IoClose size={30} />
-  //           </StyledCloseMenuButton>
-  //           <StyledNavLink href={"/"}>Home</StyledNavLink>
-  //           <StyledNavLink href={"/"}>Plants</StyledNavLink>
-  //           <StyledNavLink href={"/"}>Rooms</StyledNavLink>
-  //         </StyledMenu>
-  //       </>
-  //     )}
-  //   </>
-  // );
 }
