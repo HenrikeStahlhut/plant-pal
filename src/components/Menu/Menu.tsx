@@ -1,11 +1,9 @@
-import { TbMenu2 } from "react-icons/tb";
-import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { StyledMenu, StyledNavLink } from "./Menu.styled";
-import { StyledOpenMenuButton } from "../MenuButton/MenuButton.styled";
 import MenuButton from "../MenuButton/MenuButton";
+import { ROUTES } from "@/routes";
 
-export default function Navigation() {
+export default function Menu() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const openMenu = () => {
@@ -21,13 +19,13 @@ export default function Navigation() {
       <MenuButton open={menuOpen} setOpen={setMenuOpen} />
 
       <StyledMenu open={menuOpen}>
-        <StyledNavLink href={"/"} onClick={() => closeMenu()}>
+        <StyledNavLink href={ROUTES.HOME} onClick={() => closeMenu()}>
           Home
         </StyledNavLink>
         <StyledNavLink href={"/"} onClick={() => closeMenu()}>
           Plants
         </StyledNavLink>
-        <StyledNavLink href={"/"} onClick={() => closeMenu()}>
+        <StyledNavLink href={ROUTES.ROOMS_OVERVIEW} onClick={() => closeMenu()}>
           Rooms
         </StyledNavLink>
       </StyledMenu>

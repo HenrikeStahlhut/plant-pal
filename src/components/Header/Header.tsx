@@ -5,9 +5,5 @@ type HeaderProps = {
 };
 
 export default function Header({ children }: HeaderProps) {
-  return (
-    <>
-      <HeaderContainer>{children}</HeaderContainer>
-    </>
-  );
+  return <HeaderContainer>{children}</HeaderContainer>;
 }

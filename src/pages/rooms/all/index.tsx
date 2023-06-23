@@ -1,8 +1,8 @@
 import RoomsList from "@/components/RoomsList/RoomsList";
 import { Room, RoomType } from "@prisma/client";
 import Headline from "@/components/Headline/Headline";
-import Navigation from "@/components/Menu/Menu";
 import Header from "@/components/Header/Header";
+import Menu from "@/components/Menu/Menu";
 
 const dummyRooms: Room[] = [
   {
@@ -68,7 +68,7 @@ export default function AllRooms() {
     <>
       <Header>
         <Headline>All Rooms</Headline>
-        <Navigation />
+        <Menu />
       </Header>
       <RoomsList rooms={dummyRooms} />
     </>
