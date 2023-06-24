@@ -9,6 +9,9 @@ export const GlobalStyle = createGlobalStyle`
   --highlight-green: #9BA55F;
   --beige: #FFF8ED;
   --background-green: #EEF2E5;
+  --completed: #c0f2b1;
+  --uncompleted: #f2b5b1;
+  --menu: #b7c29f;
 }
 
   *,

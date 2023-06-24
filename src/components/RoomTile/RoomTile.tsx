@@ -11,7 +11,7 @@ type RoomTileProps = {
 export default function RoomTile({ room }: RoomTileProps) {
   return (
     <>
-      <WrapperLink href={"/"}>
+      <WrapperLink href={"/rooms"}>
         <RommTileImage
           src={`/rooms/${room.type}.png`}
           alt={`Image of ${room.name}`}

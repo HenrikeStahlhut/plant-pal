@@ -1,10 +1,15 @@
 import { Container, TodoInput, TodoLabel } from "./TodoContainer.styled";
 
+//TODO: add if completed, add logic for completed todos, add CRUD operations for todos
+
 const dummyTodo = [
   {
     id: 1,
     content: "Water Monstera in living room",
     today: true,
+    createdAt: "2021-06-01",
+    updatedAt: "2021-06-01",
+    completed: false,
   },
   {
     id: 2,
@@ -28,6 +33,7 @@ type TodoContainerProps = {
 };
 
 export default function TodoContainer({ today }: TodoContainerProps) {
+  //?: remove name="r" from TodoInput?
   return (
     <Container>
       {dummyTodo.map((todo) => {

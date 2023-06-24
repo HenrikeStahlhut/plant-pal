@@ -44,6 +44,4 @@ model Room {
   updatedAt DateTime @default(now()) @updatedAt
 }
 
-// TODO: Room
-
 // pnpx prisma migrate dev

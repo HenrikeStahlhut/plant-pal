@@ -22,7 +22,10 @@ export default function Menu() {
         <StyledNavLink href={ROUTES.HOME} onClick={() => closeMenu()}>
           Home
         </StyledNavLink>
-        <StyledNavLink href={"/"} onClick={() => closeMenu()}>
+        <StyledNavLink
+          href={ROUTES.PLANTS_OVERVIEW}
+          onClick={() => closeMenu()}
+        >
           Plants
         </StyledNavLink>
         <StyledNavLink href={ROUTES.ROOMS_OVERVIEW} onClick={() => closeMenu()}>

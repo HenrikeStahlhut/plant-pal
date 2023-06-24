@@ -11,7 +11,7 @@ export const StyledMenu = styled.nav<{ open: boolean }>`
   height: 100vh;
   width: 35vw;
   position: fixed;
-  background-color: var(--dark-green);
+  background-color: var(--menu);
   z-index: 1;
   padding: 10rem 0;
   flex-direction: column;
@@ -27,7 +27,7 @@ export const StyledNavLink = styled(Link)`
   text-decoration: none;
 
   :hover {
-    color: var(--highlight-green);
+    color: var(--dark-green);
     cursor: pointer;
   }
 `;
