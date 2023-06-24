@@ -32,7 +32,7 @@ export const TodoLabel = styled.label`
     height: 2px;
     width: 8px;
     left: -27px;
-    background: red;
+    background: black;
     border-radius: 2px;
     transition: background 0.3s ease;
   }
@@ -64,7 +64,7 @@ export const TodoInput = styled.input`
     position: absolute;
     height: 2px;
     top: auto;
-    background: green;
+    background: var(--highlight-green);
     border-radius: 2px;
   }
   &::before {
@@ -85,10 +85,10 @@ export const TodoInput = styled.input`
       animation: check-02 0.4s ease forwards;
     }
     + label {
-      color: grey;
+      color: lightgray;
       animation: move 0.3s ease 0.1s forwards;
       &::before {
-        background: grey;
+        background: lightgray;
         animation: slice 0.4s ease forwards;
       }
       &::after {
@@ -106,6 +106,7 @@ export const TodoInput = styled.input`
       padding-right: 4px;
     }
   }
+
   @keyframes slice {
     60% {
       width: 100%;
@@ -117,6 +118,7 @@ export const TodoInput = styled.input`
       padding-left: 0;
     }
   }
+
   @keyframes check-01 {
     0% {
       width: 4px;
@@ -139,6 +141,7 @@ export const TodoInput = styled.input`
       transform: rotate(45deg);
     }
   }
+
   @keyframes check-02 {
     0% {
       width: 4px;
@@ -164,17 +167,22 @@ export const TodoInput = styled.input`
   @keyframes firework {
     0% {
       opacity: 1;
-      box-shadow: 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0,
-        0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0, 0 0 0 -2px #4f29f0;
+      box-shadow: 0 0 0 -2px var(--highlight-green),
+        0 0 0 -2px var(--highlight-green), 0 0 0 -2px var(--highlight-green),
+        0 0 0 -2px var(--highlight-green), 0 0 0 -2px var(--highlight-green),
+        0 0 0 -2px var(--highlight-green);
     }
     30% {
       opacity: 1;
     }
     100% {
       opacity: 0;
-      box-shadow: 0 -15px 0 0px #4f29f0, 14px -8px 0 0px #4f29f0,
-        14px 8px 0 0px #4f29f0, 0 15px 0 0px #4f29f0, -14px 8px 0 0px #4f29f0,
-        -14px -8px 0 0px #4f29f0;
+      box-shadow: 0 -15px 0 0px var(--highlight-green),
+        14px -8px 0 0px var(--highlight-green),
+        14px 8px 0 0px var(--highlight-green),
+        0 15px 0 0px var(--highlight-green),
+        -14px 8px 0 0px var(--highlight-green),
+        -14px -8px 0 0px var(--highlight-green);
     }
   }
 `;
