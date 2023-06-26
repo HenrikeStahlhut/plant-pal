@@ -6,6 +6,8 @@ import Menu from "@/components/Menu/Menu";
 import Backbutton from "@/components/BackButton/Backbutton";
 import { ROUTES } from "@/routes";
 import Layout from "@/components/Layout/Layout";
+import AddRoomModal from "@/components/AddRoomModal/AddRoomModal";
+import SubHeaderContainer from "@/components/SubHeaderContainer/SubHeaderContainer";
 
 const dummyRooms: Room[] = [
   {
@@ -73,9 +75,11 @@ export default function AllRooms() {
         <Backbutton href={ROUTES.HOME} />
         <Menu />
       </Header>
-
       <Layout>
-        <Headline>All Rooms</Headline>
+        <SubHeaderContainer>
+          <Headline>All Rooms</Headline>
+          <AddRoomModal />
+        </SubHeaderContainer>
         <RoomsList rooms={dummyRooms} />
       </Layout>
     </>

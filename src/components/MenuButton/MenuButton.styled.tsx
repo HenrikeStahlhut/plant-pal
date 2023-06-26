@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledOpenMenuButton = styled.button<{ open: boolean }>`
-  margin: 30px 0px 30px 0px;
+  margin: 30px;
   padding: 0;
   z-index: 2;
   background: transparent;
