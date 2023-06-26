@@ -31,13 +31,3 @@ export const StyledNavLink = styled(Link)`
     cursor: pointer;
   }
 `;
-
-// export const StyledOverlay = styled.div`
-//   background: rgba(114, 122, 67, 0.5);
-//   top: 0px;
-//   width: 100vw;
-//   height: 100vh;
-//   position: fixed;
-//   backdrop-filter: blur(1px);
-//   z-index: 0;
-// `;

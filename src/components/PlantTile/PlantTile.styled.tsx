@@ -8,7 +8,6 @@ export const StyledCard = styled.div`
   border-radius: 15px;
   padding: 15px;
   margin: 20px 50px;
-  width: 50%;
 `;
 
 export const StyledImage = styled(Image)`

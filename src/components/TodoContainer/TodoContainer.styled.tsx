@@ -11,8 +11,7 @@ export const Container = styled.div`
   background-color: var(--white);
   border-radius: 10px;
   margin: 20px 50px;
-  padding: 30px 45px;
-  width: 50%;
+  padding: 30px 30px;
 `;
 
 export const TodoLabel = styled.label`

@@ -5,6 +5,7 @@ import Menu from "@/components/Menu/Menu";
 import PlantTile from "@/components/PlantTile/PlantTile";
 import TaskInfo from "@/components/TaskInfo/TaskInfo";
 import { ROUTES } from "@/routes";
+import Layout from "@/components/Layout/Layout";
 
 export default function RoomDetailpage() {
   return (
@@ -13,9 +14,12 @@ export default function RoomDetailpage() {
         <Backbutton href={ROUTES.ROOMS_OVERVIEW} />
         <Menu />
       </Header>
-      <Headline>Room Detail Page</Headline>
-      <TaskInfo />
-      <PlantTile />
+
+      <Layout>
+        <Headline>Room Detail Page</Headline>
+        <TaskInfo />
+        <PlantTile />
+      </Layout>
     </>
   );
 }

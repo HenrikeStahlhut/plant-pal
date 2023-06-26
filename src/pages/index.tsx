@@ -6,6 +6,7 @@ import Subheadline from "@/components/Subheadline/Subheadline";
 import TodoContainer from "@/components/TodoContainer/TodoContainer";
 import { WrapperLink } from "@/components/WrapperLink/WrapperLink.styled";
 import { ROUTES } from "@/routes";
+import Layout from "@/components/Layout/Layout";
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
         <Menu />
       </Header>
 
-      <main>
+      <Layout>
         <WrapperLink href={ROUTES.TODO_TODAY}>
           <Subheadline>Todays Todo</Subheadline>
         </WrapperLink>
@@ -24,7 +25,7 @@ export default function Home() {
           <Subheadline>Upcoming Todo</Subheadline>
         </WrapperLink>
         <TodoContainer today={false} />
-      </main>
+      </Layout>
     </>
   );
 }

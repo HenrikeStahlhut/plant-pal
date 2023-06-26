@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import Menu from "@/components/Menu/Menu";
 import Backbutton from "@/components/BackButton/Backbutton";
 import { ROUTES } from "@/routes";
+import Layout from "@/components/Layout/Layout";
 
 const dummyRooms: Room[] = [
   {
@@ -72,8 +73,11 @@ export default function AllRooms() {
         <Backbutton href={ROUTES.HOME} />
         <Menu />
       </Header>
-      <Headline>All Rooms</Headline>
-      <RoomsList rooms={dummyRooms} />
+
+      <Layout>
+        <Headline>All Rooms</Headline>
+        <RoomsList rooms={dummyRooms} />
+      </Layout>
     </>
   );
 }

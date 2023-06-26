@@ -1,15 +1,16 @@
+import { Fragment } from "react";
 import { Container, TodoInput, TodoLabel } from "./TodoContainer.styled";
 
 //TODO: add if completed, add logic for completed todos, add CRUD operations for todos
 
-const dummyTodo = [
+const dummyTodos: Todo[] = [
   {
     id: 1,
     content: "Water Monstera in living room",
     today: true,
-    createdAt: "2021-06-01",
-    updatedAt: "2021-06-01",
-    completed: false,
+    // createdAt: "2021-06-01",
+    // updatedAt: "2021-06-01",
+    // completed: false,
   },
   {
     id: 2,
@@ -28,29 +29,35 @@ const dummyTodo = [
   },
 ];
 
+interface Todo {
+  id: number;
+  content: string;
+  today: boolean;
+}
+
 type TodoContainerProps = {
   today: boolean;
+  // todos: Todo;
 };
 
 export default function TodoContainer({ today }: TodoContainerProps) {
   //?: remove name="r" from TodoInput?
   return (
     <Container>
-      {dummyTodo.map((todo) => {
-        if (today === todo.today) {
-          return (
-            <>
-              <TodoInput
-                type="checkbox"
-                id={todo.id.toString()}
-                value={todo.id}
-                name="r"
-              />
-              <TodoLabel htmlFor={todo.id.toString()}>{todo.content}</TodoLabel>
-            </>
-          );
-        }
-      })}
+      {dummyTodos
+        .filter((todo) => todo.today)
+        .map((todo) => (
+          <Fragment key={todo.id}>
+            <TodoInput
+              type="checkbox"
+              id={todo.id.toString()}
+              value={todo.id}
+              name="r"
+              onClick={() => console.log("clicked")}
+            />
+            <TodoLabel htmlFor={todo.id.toString()}>{todo.content}</TodoLabel>
+          </Fragment>
+        ))}
     </Container>
   );
 }

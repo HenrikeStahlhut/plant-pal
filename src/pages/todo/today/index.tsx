@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import { ROUTES } from "@/routes";
 import TodoContainer from "@/components/TodoContainer/TodoContainer";
 import Subheadline from "@/components/Subheadline/Subheadline";
+import Layout from "@/components/Layout/Layout";
 
 function padTo2Digits(num: number) {
   return num.toString().padStart(2, "0");
@@ -27,9 +28,12 @@ export default function TodoToday() {
         <Backbutton href={ROUTES.HOME} />
         <Menu />
       </Header>
-      <Headline>Todays Todo</Headline>
-      <Subheadline>{todaysdate}</Subheadline>
-      <TodoContainer today={true} />
+
+      <Layout>
+        <Headline>Todays Todo</Headline>
+        <Subheadline>{todaysdate}</Subheadline>
+        <TodoContainer today={true} />
+      </Layout>
     </>
   );
 }

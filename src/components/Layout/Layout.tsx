@@ -1,15 +1,15 @@
-import { HeaderContainer } from "./Header.styled";
+import { LayoutContainer } from "./Layout.styled";
 
-type HeaderProps = {
+type LayoutProps = {
   children: React.ReactNode;
 };
 
-export default function Header({ children }: HeaderProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <HeaderContainer>
+    <LayoutContainer>
       <div className="space-left"> </div>
       <div className="container">{children}</div>
       <div className="space-right"> </div>
-    </HeaderContainer>
+    </LayoutContainer>
   );
 }

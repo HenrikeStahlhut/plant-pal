@@ -21,7 +21,8 @@ export default function PlantTile() {
         <StyledCard key={plant.id}>
           <StyledImage src="/plant.png" width={100} height={100} alt="Plant" />
           <StyledPlantDetails>
-            {plant.name} Room: {plant.room}
+            {plant.name} <br />
+            Room: {plant.room}
           </StyledPlantDetails>
         </StyledCard>
       ))}
