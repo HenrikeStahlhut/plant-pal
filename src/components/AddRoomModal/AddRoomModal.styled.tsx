@@ -61,6 +61,19 @@ export const StyledAddButton = styled.button`
   background-color: var(--dark-green);
 `;
 
+export const StyledConfirmButton = styled.button`
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 7px;
+  margin: 10px 0px;
+  background-color: var(--dark-green);
+
+  :hover {
+    background-color: var(--highlight-green);
+  }
+`;
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;

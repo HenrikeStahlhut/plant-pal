@@ -5,7 +5,11 @@ export const RoomsContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   gap: 20px;
-  margin: 0px 40px 100px 40px;
+  margin: 25px 80px 100px 80px;
+
+  @media (max-width: 600px) {
+    margin: 25px 40px 100px 40px;
+  }
 `;
 
 export const RoomTilesContainer = styled.div`
