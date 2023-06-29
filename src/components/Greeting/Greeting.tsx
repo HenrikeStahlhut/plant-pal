@@ -7,10 +7,10 @@ export default function Greeting() {
 
   if (hours < 12) {
     timeOfDay = "morning";
-  } else if (hours >= 12 && hours < 17) {
+  } else if (hours >= 12 && hours < 18) {
     timeOfDay = "afternoon";
   } else {
-    timeOfDay = "night";
+    timeOfDay = "evening";
   }
 
   return <Headline>Good {timeOfDay}!</Headline>;

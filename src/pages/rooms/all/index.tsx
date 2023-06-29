@@ -78,7 +78,9 @@ export default function AllRooms() {
       <Layout>
         <SubHeaderContainer>
           <Headline>All Rooms</Headline>
-          <AddRoomModal />
+          <div>
+            <AddRoomModal />
+          </div>
         </SubHeaderContainer>
         <RoomsList rooms={dummyRooms} />
       </Layout>

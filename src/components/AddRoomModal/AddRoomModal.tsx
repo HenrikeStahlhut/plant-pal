@@ -1,7 +1,3 @@
-import { RoomType } from "@prisma/client";
-import error from "next/error";
-import { type } from "os";
-import { title } from "process";
 import { useState } from "react";
 import {
   StyledOpenBtn,

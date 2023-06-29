@@ -1,3 +1,5 @@
+import { ROUTES } from "@/routes";
+import { WrapperLink } from "../WrapperLink/WrapperLink.styled";
 import {
   StyledCard,
   StyledImage,
@@ -18,13 +20,20 @@ export default function PlantTile() {
   return (
     <>
       {dummyPlants.map((plant) => (
-        <StyledCard key={plant.id}>
-          <StyledImage src="/plant.png" width={100} height={100} alt="Plant" />
-          <StyledPlantDetails>
-            {plant.name} <br />
-            Room: {plant.room}
-          </StyledPlantDetails>
-        </StyledCard>
+        <WrapperLink key={plant.id} href={ROUTES.PLANT_DETAILPAGE}>
+          <StyledCard key={plant.id}>
+            <StyledImage
+              src="/plant2.png"
+              width={100}
+              height={100}
+              alt="Plant"
+            />
+            <StyledPlantDetails>
+              {plant.name} <br />
+              Room: {plant.room}
+            </StyledPlantDetails>
+          </StyledCard>
+        </WrapperLink>
       ))}
     </>
   );

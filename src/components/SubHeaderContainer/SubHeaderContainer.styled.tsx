@@ -5,4 +5,9 @@ export const StyledSubHeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 15px;
+
+  div {
+    margin-right: 50px;
+  }
 `;

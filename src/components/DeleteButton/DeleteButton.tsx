@@ -1,6 +1,5 @@
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { StyledDeleteButton } from "./DeleteButton.styled";
-import { title } from "process";
 import {
   StyledOverlay,
   StyledModal,
@@ -11,7 +10,12 @@ import {
 } from "../AddRoomModal/AddRoomModal.styled";
 import { useState } from "react";
 
-export default function DeleteButton() {
+//TODO: Think of better prop name
+type DeleteButtonProps = {
+  contentType: string;
+};
+
+export default function DeleteButton({ contentType }: DeleteButtonProps) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
@@ -30,7 +34,7 @@ export default function DeleteButton() {
           <StyledModal>
             <StyledModalContent>
               <StyledModalHeadline>
-                Do you really want to delete this room?
+                Do you really want to delete this {contentType}?
               </StyledModalHeadline>
               <br />
               <StyledConfirmButton type="submit">

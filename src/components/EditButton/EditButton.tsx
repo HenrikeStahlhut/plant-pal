@@ -1,8 +1,6 @@
 import { RiPencilFill } from "react-icons/ri";
 import { StyledEditButton } from "./EditButton.styled";
 import { useState } from "react";
-import error from "next/error";
-import { title } from "process";
 import {
   StyledOverlay,
   StyledModal,
@@ -10,12 +8,16 @@ import {
   StyledModalHeadline,
   StyledLabel,
   StyledInput,
-  StyledSelect,
   StyledAddButton,
   StyledCloseModalBtn,
 } from "../AddRoomModal/AddRoomModal.styled";
 
-export default function EditButton() {
+//TODO: Think of better prop name
+type EditButtonProps = {
+  contentType: string;
+};
+
+export default function EditButton({ contentType }: EditButtonProps) {
   const [modalOpen, setModalOpen] = useState(false);
   const [title, setTitle] = useState("");
 
@@ -33,7 +35,7 @@ export default function EditButton() {
           <StyledOverlay onClick={toggleModal}></StyledOverlay>
           <StyledModal>
             <StyledModalContent>
-              <StyledModalHeadline>Rename Room</StyledModalHeadline>
+              <StyledModalHeadline>Rename {contentType}</StyledModalHeadline>
 
               <StyledLabel htmlFor="name">Name</StyledLabel>
               <StyledInput

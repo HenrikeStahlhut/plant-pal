@@ -1,6 +1,4 @@
 import { WrapperLink } from "../WrapperLink/WrapperLink.styled";
-import { ROUTES } from "@/routes";
-import { TbArrowBigLeftFilled } from "react-icons/tb";
 import { FlexContainer } from "./Backbutton.styled";
 import { BiLeftArrowAlt } from "react-icons/bi";
 

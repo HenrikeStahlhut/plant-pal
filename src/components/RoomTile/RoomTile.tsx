@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { RoomTileCaption, RommTileImage } from "./RoomTile.styled";
-import Link from "next/link";
 import { WrapperLink } from "../WrapperLink/WrapperLink.styled";
-import { Room, RoomType } from "@prisma/client";
+import { Room } from "@prisma/client";
 
 type RoomTileProps = {
   room: Room;

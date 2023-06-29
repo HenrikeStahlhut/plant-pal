@@ -5,4 +5,5 @@ export const ROUTES = {
   TODO_TODAY: "/todo/today",
   TODO_UPCOMING: "/todo/upcoming",
   PLANTS_OVERVIEW: "/plants/all",
+  PLANT_DETAILPAGE: "/plants",
 };

@@ -6,7 +6,6 @@ import PlantTile from "@/components/PlantTile/PlantTile";
 import TaskInfo from "@/components/TaskInfo/TaskInfo";
 import { ROUTES } from "@/routes";
 import Layout from "@/components/Layout/Layout";
-import { RiDeleteBin2Fill, RiPencilFill } from "react-icons/ri";
 import SubHeaderContainer from "@/components/SubHeaderContainer/SubHeaderContainer";
 import DeleteButton from "@/components/DeleteButton/DeleteButton";
 import EditButton from "@/components/EditButton/EditButton";
@@ -23,8 +22,8 @@ export default function RoomDetailpage() {
         <SubHeaderContainer>
           <Headline>Room Detail Page</Headline>
           <div>
-            <DeleteButton />
-            <EditButton />
+            <DeleteButton contentType={"Room"} />
+            <EditButton contentType={"Room"} />
           </div>
         </SubHeaderContainer>
 

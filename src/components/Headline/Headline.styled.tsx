@@ -5,6 +5,6 @@ export const StyledHeadline = styled.h2`
   margin: 30px 0px 30px 0px;
 
   @media (max-width: 600px) {
-    margin: 30px 20px 15px 20px;
+    margin-left: 50px;
   }
 `;
