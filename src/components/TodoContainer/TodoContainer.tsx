@@ -3,6 +3,7 @@ import { Container, TodoInput, TodoLabel } from "./TodoContainer.styled";
 
 //TODO: add if completed, add logic for completed todos, add CRUD operations for todos
 
+// TODO: marc
 const dummyTodos: Todo[] = [
   {
     id: 1,

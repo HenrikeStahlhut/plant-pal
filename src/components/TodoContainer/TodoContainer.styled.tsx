@@ -10,8 +10,12 @@ export const Container = styled.div`
   align-items: center;
   background-color: var(--white);
   border-radius: 10px;
-  margin: 20px 50px;
+  margin: 20px 0px;
   padding: 30px 30px;
+
+  @media (max-width: 600px) {
+    margin: 20px 50px;
+  }
 `;
 
 export const TodoLabel = styled.label`
