@@ -7,7 +7,11 @@ export const StyledCard = styled.div`
   background-color: var(--white);
   border-radius: 15px;
   padding: 15px;
-  margin: 20px 50px;
+  margin: 20px 0px;
+
+  @media (max-width: 600px) {
+    margin: 20px 50px;
+  }
 `;
 
 export const StyledImage = styled(Image)`

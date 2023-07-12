@@ -4,6 +4,10 @@ export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: row;
 
+  .menuContainer {
+    width: 60%;
+  }
+
   .space-left {
     width: 20%;
   }

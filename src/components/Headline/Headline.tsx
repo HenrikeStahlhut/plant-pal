@@ -7,7 +7,7 @@ type HeadlineProps = {
 export default function Headline({ children }: HeadlineProps) {
   return (
     <>
-      <StyledHeadline>{children}</StyledHeadline>
+      <StyledHeadline className="details">{children}</StyledHeadline>
     </>
   );
 }
