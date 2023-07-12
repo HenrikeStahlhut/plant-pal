@@ -11,27 +11,47 @@ import {
   StyledInput,
   StyledSelect,
 } from "./AddRoomModal.styled";
+import { RoomType } from "@prisma/client";
+import { formatRoomType } from "@/lib/formatRoomType";
+import { mutate } from "swr";
 
 export default function AddRoomModal() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [title, setTitle] = useState("");
-  const [type, setType] = useState(undefined);
-  const [error, setError] = useState("");
+  const [name, setName] = useState("");
+  const [type, setType] = useState<RoomType | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
+    setName("");
+    setType(null);
+    setError(null);
   };
 
   const handleAddRoom = () => {
-    if (!title || !type) {
+    if (!name || !type) {
       setError("Please fill in all fields");
       return;
     }
+
+    fetch("/api/rooms", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        type,
+      }),
+    }).then(() => {
+      mutate("/api/rooms");
+    });
+
     toggleModal();
-    setError("");
+    setName(" ");
+    setType(null);
+    setError(null);
   };
 
-  //?: Error not working? useState(null) not working
+  //TODO: <br> to margin
 
   return (
     <>
@@ -49,18 +69,24 @@ export default function AddRoomModal() {
                 id="name"
                 name="name"
                 required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 autoComplete="off"
-              ></StyledInput>
+              />
               <br />
+
               <StyledLabel htmlFor="room">Room</StyledLabel>
-              <StyledSelect>
-                <option value="Living Room">Living Room</option>
-                <option value="Bedroom">Bedroom</option>
-                <option value="Bathroom">Bathroom</option>
+              <StyledSelect
+                onChange={(e) => setType(e.target.value as RoomType)}
+              >
+                {Object.values(RoomType).map((type, index) => (
+                  <option key={index} value={type}>
+                    {formatRoomType(type)}
+                  </option>
+                ))}
               </StyledSelect>
               <br />
+
               <StyledAddButton type="submit" onClick={handleAddRoom}>
                 Add
               </StyledAddButton>
