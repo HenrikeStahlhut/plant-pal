@@ -16,7 +16,7 @@ export default function RoomTile({ room }: RoomTileProps) {
           width={130}
           height={130}
         />
-        <RoomTileCaption>{room.name}</RoomTileCaption>
+        {/* <RoomTileCaption>{room.name}</RoomTileCaption> */}
       </WrapperLink>
     </>
   );

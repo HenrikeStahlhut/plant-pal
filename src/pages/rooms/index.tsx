@@ -1,35 +1,52 @@
-import Backbutton from "@/components/BackButton/Backbutton";
-import Header from "@/components/Header/Header";
+import AddRoomModal from "@/components/AddRoomModal/AddRoomModal";
+import ErrorBanner from "@/components/Banner/ErrorBanner";
 import Headline from "@/components/Headline/Headline";
-import Menu from "@/components/Menu/Menu";
-import PlantTile from "@/components/PlantTile/PlantTile";
-import TaskInfo from "@/components/TaskInfo/TaskInfo";
-import { ROUTES } from "@/routes";
-import Layout from "@/components/Layout/Layout";
+import RoomsList from "@/components/RoomsList/RoomsList";
 import SubHeaderContainer from "@/components/SubHeaderContainer/SubHeaderContainer";
-import DeleteButton from "@/components/DeleteButton/DeleteButton";
-import EditButton from "@/components/EditButton/EditButton";
+import { fetcher } from "@/lib/fetcher";
+import { GetRoomsSuccessResponse } from "@/pages/api/rooms";
+import useSWR from "swr";
+import LoadingBanner from "@/components/Banner/LoadingBanner";
 
-export default function RoomDetailpage() {
+const AllRoomsWrapper = ({ children }: { children: React.ReactNode }) => (
+  <>
+    <SubHeaderContainer>
+      <Headline>All Rooms</Headline>
+      <div>
+        <AddRoomModal />
+      </div>
+    </SubHeaderContainer>
+
+    {children}
+  </>
+);
+
+export default function AllRooms() {
+  const { data, error, isLoading } = useSWR<GetRoomsSuccessResponse>(
+    "/api/rooms",
+    fetcher
+  );
+
+  if (error || (!isLoading && !data)) {
+    return (
+      <AllRoomsWrapper>
+        <ErrorBanner>Failed to load</ErrorBanner>
+      </AllRoomsWrapper>
+    );
+  }
+
+  if (isLoading || !data) {
+    // TODO style error banner
+    return (
+      <AllRoomsWrapper>
+        <LoadingBanner>Loading your rooms...</LoadingBanner>
+      </AllRoomsWrapper>
+    );
+  }
+
   return (
-    <>
-      <Header>
-        <Backbutton href={ROUTES.ROOMS_OVERVIEW} />
-        <Menu />
-      </Header>
-
-      <Layout>
-        <SubHeaderContainer>
-          <Headline>Room Detail Page</Headline>
-          <div>
-            <DeleteButton contentType={"Room"} />
-            <EditButton contentType={"Room"} />
-          </div>
-        </SubHeaderContainer>
-
-        <TaskInfo />
-        <PlantTile />
-      </Layout>
-    </>
+    <AllRoomsWrapper>
+      <RoomsList rooms={data.rooms} />
+    </AllRoomsWrapper>
   );
 }
