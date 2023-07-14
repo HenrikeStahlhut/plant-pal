@@ -1,7 +1,9 @@
 import DeleteButton, {
   DeleteButtonContentType,
 } from "@/components/DeleteButton/DeleteButton";
-import EditButton from "@/components/EditButton/EditButton";
+import EditButton, {
+  EditButtonContentType,
+} from "@/components/EditButton/EditButton";
 import Headline from "@/components/Headline/Headline";
 import SubHeaderContainer from "@/components/SubHeaderContainer/SubHeaderContainer";
 import Image from "next/image";
@@ -16,6 +18,7 @@ import { useState } from "react";
 import { FaCouch } from "react-icons/fa";
 import { PiPottedPlantFill, PiSunFill } from "react-icons/pi";
 import { IoWaterSharp } from "react-icons/io5";
+import ChangeRoomsButton from "@/components/ChangeRoomsButton/ChangeRoomsButton";
 
 const StyledPlantImage = styled(Image)`
   border-radius: 15px;
@@ -122,7 +125,7 @@ export default function PlantDetailPage() {
             error={deleteError}
             setError={setDeleteError}
           />
-          <EditButton contentType={"Plant"} />
+          <EditButton contentType={EditButtonContentType.PLANT} />
         </div>
       </SubHeaderContainer>
       <DetailsContainer>
@@ -150,6 +153,7 @@ export default function PlantDetailPage() {
             <StyledText>water</StyledText>
           </StyledCard>
         </div>
+        <ChangeRoomsButton />
       </DetailsContainer>
     </>
   );

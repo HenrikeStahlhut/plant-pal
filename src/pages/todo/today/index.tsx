@@ -2,14 +2,6 @@ import Headline from "@/components/Headline/Headline";
 import Subheadline from "@/components/Subheadline/Subheadline";
 import TodoContainer from "@/components/TodoContainer/TodoContainer";
 
-/*
-
-3
-"3"
-"03"
-
-*/
-
 function padTo2Digits(num: number) {
   return num.toString().padStart(2, "0");
 }

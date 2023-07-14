@@ -41,8 +41,6 @@ export default async function async(
   if (req.method === "DELETE") {
     console.log("req", req.query);
 
-    // return res.status(400).json({ error: "dummy error bla bla api" });
-
     const deletePlant = await prisma.plant.delete({
       where: {
         id: req.query.id,
@@ -56,7 +54,30 @@ export default async function async(
     return res.status(200).json({ success: "Deleted plant" });
   }
 
-  // TODO: PUT, but same problem like with update room
+  //TODO: how to update only name/type?
+  // PUT
+  if (req.method === "PUT") {
+    if (!req.body.name || !req.body.roomId) {
+      return res.status(400).json({ error: "Malformed body" });
+    }
+    try {
+      const plant = await prisma.plant.update({
+        where: {
+          id: req.query.id,
+        },
+        data: {
+          name: req.body.name,
+          roomId: req.body.roomId,
+        },
+      });
+
+      return res.json({ plant });
+    } catch (err) {
+      console.log(err);
+
+      return res.status(500).json({ error: "Could not update room" });
+    }
+  }
 
   return res.status(405).json({ error: "Method not allowed" });
 }

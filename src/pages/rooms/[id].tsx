@@ -1,7 +1,9 @@
 import DeleteButton, {
   DeleteButtonContentType,
 } from "@/components/DeleteButton/DeleteButton";
-import EditButton from "@/components/EditButton/EditButton";
+import EditButton, {
+  EditButtonContentType,
+} from "@/components/EditButton/EditButton";
 import Headline from "@/components/Headline/Headline";
 import PlantTile from "@/components/PlantList/PlantList";
 import SubHeaderContainer from "@/components/SubHeaderContainer/SubHeaderContainer";
@@ -19,7 +21,6 @@ import PlantsInRoom from "@/components/PlantsInRoom/PlantsInRoom";
 
 function RoomDetailpage() {
   const router = useRouter();
-  // TODO: handle id being undefined
   const { id } = router.query;
 
   const [deleteError, setDeleteError] = useState<string | null>(null);
@@ -31,7 +32,8 @@ function RoomDetailpage() {
     fetcher
   );
 
-  if (error || (!isLoading && !data)) {
+  //? handle id being undefined?
+  if (error || (!isLoading && !data) || !id) {
     return <ErrorBanner>Failed to load</ErrorBanner>;
   }
 
@@ -61,7 +63,7 @@ function RoomDetailpage() {
             error={null}
             setError={setDeleteError}
           />
-          <EditButton contentType={"Room"} />
+          <EditButton contentType={EditButtonContentType.ROOM} />
         </div>
       </SubHeaderContainer>
       <Subheadline>{data.room.plants.length} Plants</Subheadline>

@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
 import { Plant, Room } from "@prisma/client";
 import { ApiErrorResponse, ApiSuccessResponse } from "@/lib/fetcher";
-import { isRoomType } from "@/lib/typeguards";
 
 interface ExtendedNextApiRequest extends NextApiRequest {
   query: {
@@ -80,7 +79,7 @@ export default async function async(
     return res.status(200).json({ success: "Room deleted" });
   }
 
-  //PUT
+  // PUT/Edit room
 
   if (req.method === "PUT") {
     if (!req.body.name) {
@@ -90,7 +89,7 @@ export default async function async(
     try {
       const room = await prisma.room.update({
         where: {
-          id: req.body.id,
+          id: req.query.id,
         },
         data: {
           name: req.body.name,
@@ -99,6 +98,8 @@ export default async function async(
 
       return res.json({ room });
     } catch (err) {
+      console.log(err);
+
       return res.status(500).json({ error: "Could not update room" });
     }
   }

@@ -17,7 +17,7 @@ import { mutate } from "swr";
 
 export default function AddRoomModal() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [name, setName] = useState("");
+  const [name, setName] = useState<string | null>(null);
   const [type, setType] = useState<RoomType | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,7 +46,7 @@ export default function AddRoomModal() {
     });
 
     toggleModal();
-    setName(" ");
+    setName(null);
     setType(null);
     setError(null);
   };
@@ -69,7 +69,7 @@ export default function AddRoomModal() {
                 id="name"
                 name="name"
                 required
-                value={name}
+                value={name ?? ""}
                 onChange={(e) => setName(e.target.value)}
                 autoComplete="off"
               />
