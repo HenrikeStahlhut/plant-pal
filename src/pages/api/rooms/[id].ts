@@ -61,9 +61,9 @@ export default async function async(
     }
 
     if (room.plants.length) {
-      return res
-        .status(400)
-        .json({ error: "Can't delete room with active plants" });
+      return res.status(400).json({
+        error: "Can't delete room with active plants",
+      });
     }
 
     const deleteRoom = await prisma.room.delete({

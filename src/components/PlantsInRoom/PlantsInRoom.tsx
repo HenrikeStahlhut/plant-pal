@@ -9,7 +9,7 @@ import useSWR from "swr";
 import { GetPlantsSuccessResponse } from "@/pages/api/plants";
 import ErrorBanner from "../Banner/ErrorBanner";
 import LoadingBanner from "../Banner/LoadingBanner";
-import { Plant, Room } from "@prisma/client";
+import { Plant } from "@prisma/client";
 
 type PlantsInRoomProps = {
   plants: Plant[];

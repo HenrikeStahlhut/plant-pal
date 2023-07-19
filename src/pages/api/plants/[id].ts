@@ -57,9 +57,10 @@ export default async function async(
   //TODO: how to update only name/type?
   // PUT
   if (req.method === "PUT") {
-    if (!req.body.name || !req.body.roomId) {
+    if (!(req.body.name || req.body.roomId)) {
       return res.status(400).json({ error: "Malformed body" });
     }
+
     try {
       const plant = await prisma.plant.update({
         where: {

@@ -114,6 +114,9 @@ export default function PlantDetailPage() {
     setDeleteError((await res.json()).error ?? "Could not delete plant");
   }
 
+  // TODO: Display plants room --> how to access rooms name when only roomId is included in plants?
+  // TODO (later): add sunlight and watering info
+
   return (
     <>
       <SubHeaderContainer>
@@ -142,7 +145,9 @@ export default function PlantDetailPage() {
           </StyledCard>
           <StyledCard>
             <FaCouch size={30} />
-            <StyledText>Room</StyledText>
+            <StyledText>
+              {data.plant.roomId ? data.plant.roomId : "No room assigned"}
+            </StyledText>
           </StyledCard>
           <StyledCard>
             <PiSunFill size={30} />

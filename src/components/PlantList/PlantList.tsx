@@ -22,6 +22,8 @@ export default function PlantList() {
   if (isLoading || !data) {
     return <div>loading...</div>;
   }
+
+  // TODO: Display plants room --> how to access rooms name when only roomId is included in plants?
   return (
     <>
       {data.plants.map((plant) => (

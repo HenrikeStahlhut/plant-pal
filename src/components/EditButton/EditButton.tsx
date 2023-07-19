@@ -85,6 +85,7 @@ export default function EditButton({ contentType }: EditButtonProps) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name,
+        roomId,
       }),
     }).then(() => {
       mutate(`/api/plants/${id}`);
