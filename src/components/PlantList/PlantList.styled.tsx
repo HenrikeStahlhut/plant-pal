@@ -24,3 +24,11 @@ export const StyledPlantDetails = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+
+export const NoPlantsDisclaimer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 20%;
+  font-weight: 800;
+  font-size: 20px;
+`;

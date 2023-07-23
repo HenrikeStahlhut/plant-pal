@@ -107,7 +107,7 @@ export default function PlantDetailPage() {
     console.log("res", res.ok);
 
     if (res.ok) {
-      router.push("/plants/all");
+      router.push("/plants");
       return;
     }
 
@@ -127,6 +127,7 @@ export default function PlantDetailPage() {
             handleDelete={handleDeletePlant}
             error={deleteError}
             setError={setDeleteError}
+            plants={1}
           />
           <EditButton contentType={EditButtonContentType.PLANT} />
         </div>

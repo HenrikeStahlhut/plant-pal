@@ -5,7 +5,6 @@ import EditButton, {
   EditButtonContentType,
 } from "@/components/EditButton/EditButton";
 import Headline from "@/components/Headline/Headline";
-import PlantTile from "@/components/PlantList/PlantList";
 import SubHeaderContainer from "@/components/SubHeaderContainer/SubHeaderContainer";
 import TaskInfo from "@/components/TaskInfo/TaskInfo";
 import { fetcher } from "@/lib/fetcher";
@@ -25,8 +24,6 @@ function RoomDetailpage() {
 
   const [deleteError, setDeleteError] = useState<string | null>(null);
 
-  console.log("id", id);
-
   const { data, error, isLoading } = useSWR<GetRoomSuccessResponse>(
     `/api/rooms/${id}`,
     fetcher
@@ -40,6 +37,8 @@ function RoomDetailpage() {
   if (isLoading || !data) {
     return <LoadingBanner>Loading your room...</LoadingBanner>;
   }
+
+  const plantsArrayLength = data.room.plants.length;
 
   // TODO: error handling and success state
   // Handle delete room
@@ -62,6 +61,7 @@ function RoomDetailpage() {
             handleDelete={handleDeleteRoom}
             error={null}
             setError={setDeleteError}
+            plants={plantsArrayLength}
           />
           <EditButton contentType={EditButtonContentType.ROOM} />
         </div>

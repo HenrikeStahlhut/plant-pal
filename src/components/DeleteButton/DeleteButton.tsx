@@ -21,6 +21,7 @@ type DeleteButtonProps = {
   handleDelete: () => void;
   error: string | null;
   setError: (error: string | null) => void;
+  plants: number;
 };
 
 export default function DeleteButton({
@@ -28,16 +29,19 @@ export default function DeleteButton({
   handleDelete,
   error,
   setError,
+  plants,
 }: DeleteButtonProps) {
   const [modalOpen, setModalOpen] = useState(false);
+  const [disclaimer, setDisclaimer] = useState("");
 
   const toggleModal = () => {
     setModalOpen(!modalOpen);
     setError(null);
   };
 
-  // TODO: disclaimer when plants are in the room thats supposed to be deleted
-
+  const dislaimerMessage = () => {
+    setDisclaimer("Room with plants cannot be deleted");
+  };
   // delete room
 
   if (contentType === DeleteButtonContentType.ROOM) {
@@ -59,10 +63,13 @@ export default function DeleteButton({
                 <StyledConfirmButton type="submit" onClick={toggleModal}>
                   No, go back!
                 </StyledConfirmButton>
-                <StyledConfirmButton type="submit" onClick={handleDelete}>
+                <StyledConfirmButton
+                  type="submit"
+                  onClick={plants ? dislaimerMessage : handleDelete}
+                >
                   Yes, I am sure!
                 </StyledConfirmButton>
-
+                {disclaimer}
                 <StyledCloseModalBtn onClick={toggleModal}>
                   ✕
                 </StyledCloseModalBtn>

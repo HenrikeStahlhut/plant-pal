@@ -73,6 +73,8 @@ export default function EditButton({ contentType }: EditButtonProps) {
     setModalError(null);
   };
 
+  //! Fix fetch
+
   // function for edit plant
   const handleEditPlant = () => {
     if (!name) {

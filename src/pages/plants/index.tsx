@@ -8,9 +8,8 @@ export default function AllPlants() {
     <>
       <SubHeaderContainer>
         <Headline>All Plants</Headline>
-        <div>
-          <AddPlantModal />
-        </div>
+
+        <AddPlantModal />
       </SubHeaderContainer>
 
       <PlantList />

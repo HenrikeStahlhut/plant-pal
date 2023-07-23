@@ -12,9 +12,8 @@ const AllRoomsWrapper = ({ children }: { children: React.ReactNode }) => (
   <>
     <SubHeaderContainer>
       <Headline>All Rooms</Headline>
-      <div>
-        <AddRoomModal />
-      </div>
+
+      <AddRoomModal />
     </SubHeaderContainer>
 
     {children}
