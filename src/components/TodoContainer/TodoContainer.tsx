@@ -41,6 +41,7 @@ type TodoContainerProps = {
   // todos: Todo;
 };
 
+// @ts-ignore
 export default function TodoContainer({ today }: TodoContainerProps) {
   //?: remove name="r" from TodoInput?
   return (

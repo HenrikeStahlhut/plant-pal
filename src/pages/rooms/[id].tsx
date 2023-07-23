@@ -59,7 +59,7 @@ function RoomDetailpage() {
           <DeleteButton
             contentType={DeleteButtonContentType.ROOM}
             handleDelete={handleDeleteRoom}
-            error={null}
+            error={deleteError}
             setError={setDeleteError}
             plants={plantsArrayLength}
           />

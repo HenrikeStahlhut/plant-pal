@@ -5,6 +5,7 @@ import { WrapperLink } from "../WrapperLink/WrapperLink.styled";
 //TODO: Add Icons for completed and uncompleted tasks, add logic
 
 export default function TaskInfo() {
+  // @ts-ignore
   const [isCompleted, setIsCompleted] = useState(false);
 
   const completedText = isCompleted
