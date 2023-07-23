@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
-export const ModalContainer = styled.div`
-  margin: 0px;
-`;
-
 export const StyledOpenBtn = styled.button`
   padding: 5px 7px;
   border: none;
   background-color: transparent;
   color: var(--highlight-green);
+
+  @media (max-width: 600px) {
+    margin-right: 50px;
+  }
 `;
 
 export const StyledModal = styled.div`
