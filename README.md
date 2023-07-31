@@ -39,8 +39,11 @@ Since the project is still in progress, here are some features I plan to impleme
 
 <br/>
 
-## development
+##  Local setup
+1. Copy the `.env.example` file and name it `.env`, it already contains the database connection details for running the project locally
+2. Run `docker compose up -d` to start the database in the background
+3. Run `pnpm run db:migrate` to run the migrations for the local database
+4. Start the server via `pnpm run start:dev` and go to: [http://localhost:3000/plants](http://localhost:3000/plants)
 
-> 💡 This project
 
 
