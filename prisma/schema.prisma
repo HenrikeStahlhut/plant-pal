@@ -11,12 +11,23 @@ datasource db {
 // ABOVE IS THE NO NO ZONE
 //
 
+enum RoomType {
+  KITCHEN
+  LIVING_ROOM
+  BEDROOM
+  BATHROOM
+  DINING_ROOM
+  HALLWAY
+  OFFICE
+  OTHER
+}
+
 model Plant {
   id String @id @default(uuid())
 
   name   String
-  Room   Room?   @relation(fields: [roomId], references: [id])
-  roomId String?
+  Room   Room   @relation(fields: [roomId], references: [id])
+  roomId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
@@ -25,14 +36,12 @@ model Plant {
 model Room {
   id String @id @default(uuid())
 
-  name     String
-  roomType String
-  plants   Plant[]
+  name   String
+  type   RoomType
+  plants Plant[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
 }
-
-// TODO: Room
 
 // pnpx prisma migrate dev
