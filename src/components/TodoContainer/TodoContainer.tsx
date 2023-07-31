@@ -1,9 +1,8 @@
 import { Fragment } from "react";
 import { Container, TodoInput, TodoLabel } from "./TodoContainer.styled";
 
-//TODO: add if completed, add logic for completed todos, add CRUD operations for todos
+// TODO: add if completed, add logic for completed todos, add CRUD operations for todos
 
-// TODO: marc
 const dummyTodos: Todo[] = [
   {
     id: 1,
@@ -43,7 +42,7 @@ type TodoContainerProps = {
 
 // @ts-ignore
 export default function TodoContainer({ today }: TodoContainerProps) {
-  //?: remove name="r" from TodoInput?
+  // ?: remove name="r" from TodoInput?
   return (
     <Container>
       {dummyTodos
@@ -55,7 +54,6 @@ export default function TodoContainer({ today }: TodoContainerProps) {
               id={todo.id.toString()}
               value={todo.id}
               name="r"
-              onClick={() => console.log("clicked")}
             />
             <TodoLabel htmlFor={todo.id.toString()}>{todo.content}</TodoLabel>
           </Fragment>

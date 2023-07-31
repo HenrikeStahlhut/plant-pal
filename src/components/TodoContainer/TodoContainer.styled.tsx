@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-//TODO: add media query for desktop view
+// TODO: add media query for desktop view
 
 export const Container = styled.div`
   /* display: flex;

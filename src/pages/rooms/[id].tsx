@@ -29,7 +29,7 @@ function RoomDetailpage() {
     fetcher
   );
 
-  //? handle id being undefined?
+  // ? handle id being undefined?
   if (error || (!isLoading && !data) || !id) {
     return <ErrorBanner>Failed to load</ErrorBanner>;
   }
@@ -40,15 +40,15 @@ function RoomDetailpage() {
 
   const plantsArrayLength = data.room.plants.length;
 
-  // TODO: error handling and success state
   // Handle delete room
   async function handleDeleteRoom() {
     const res = await fetch(`/api/rooms/${id}`, { method: "DELETE" });
 
-    if (res.ok) {
-      router.push("/rooms");
+    if (!res.ok) {
+      setDeleteError((await res.json()).error ?? "Could not delete plant");
     }
-    setDeleteError((await res.json()).error ?? "Could not delete plant");
+    router.push("/rooms");
+    return;
   }
 
   return (

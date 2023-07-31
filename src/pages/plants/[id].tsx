@@ -104,14 +104,11 @@ export default function PlantDetailPage() {
   async function handleDeletePlant() {
     const res = await fetch(`/api/plants/${id}`, { method: "DELETE" });
 
-    console.log("res", res.ok);
-
-    if (res.ok) {
-      router.push("/plants");
-      return;
+    if (!res.ok) {
+      setDeleteError((await res.json()).error ?? "Could not delete plant");
     }
-
-    setDeleteError((await res.json()).error ?? "Could not delete plant");
+    router.push("/plants");
+    return;
   }
 
   // TODO: Display plants room --> how to access rooms name when only roomId is included in plants?

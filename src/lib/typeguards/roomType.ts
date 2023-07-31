@@ -1,6 +1,7 @@
 import { RoomType } from "@prisma/client";
 
-// function isRoomType(value: any): boolean { --> function gibt boolean zurück, aber wenn die function true ist wird RoomType zurück gegeben (hence value is RoomType)
+// explanation for 'value is RoomType: function returns boolean, and if the value is true it retuirns RoomType, which is why the value is Roomtype
+
 export function isRoomType(value: any): value is RoomType {
   return Object.values(RoomType).some((type) => value === type);
 }

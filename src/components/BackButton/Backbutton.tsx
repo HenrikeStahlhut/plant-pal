@@ -2,11 +2,11 @@ import { WrapperLink } from "../WrapperLink/WrapperLink.styled";
 import { FlexContainer } from "./Backbutton.styled";
 import { BiLeftArrowAlt } from "react-icons/bi";
 
-type BackbuttonProps = {
+type BackButtonProps = {
   href: string;
 };
 
-export default function Backbutton({ href }: BackbuttonProps) {
+export default function BackButton({ href }: BackButtonProps) {
   return (
     <>
       <WrapperLink href={href}>

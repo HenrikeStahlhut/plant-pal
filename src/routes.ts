@@ -1,6 +1,6 @@
 export const ROUTES = {
-  ROOMS_OVERVIEW: "/rooms",
   HOME: "/",
+  ROOMS_OVERVIEW: "/rooms",
   TODO_TODAY: "/todo/today",
   TODO_UPCOMING: "/todo/upcoming",
   PLANTS_OVERVIEW: "/plants",

@@ -39,18 +39,17 @@ export default function PlantList() {
               />
               <StyledPlantDetails>
                 {plant.name} <br />
-                Room: {}
+                {/* Room: {} */}
               </StyledPlantDetails>
             </StyledCard>
           </WrapperLink>
         ))}
       </>
     );
-  } else {
-    return (
-      <>
-        <NoPlantsDisclaimer>You have no plants yet </NoPlantsDisclaimer>
-      </>
-    );
   }
+  return (
+    <>
+      <NoPlantsDisclaimer>You have no plants yet </NoPlantsDisclaimer>
+    </>
+  );
 }

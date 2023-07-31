@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { BiErrorCircle } from "react-icons/bi";
 
-type ErrorProps = {
+type ErrorBannerProps = {
   children: React.ReactNode;
 };
 
-const StyledBanner = styled.div`
+const StyledErrorBanner = styled.div`
   display: flex;
   align-items: center;
   background-color: #f3a2a2;
@@ -19,13 +19,13 @@ const StyledBanner = styled.div`
   }
 `;
 
-export default function ErrorBanner({ children }: ErrorProps) {
+export default function ErrorBanner({ children }: ErrorBannerProps) {
   return (
-    <StyledBanner>
+    <StyledErrorBanner>
       <div>
         <BiErrorCircle size={30} color="#a13c3c" />
       </div>
       {children}
-    </StyledBanner>
+    </StyledErrorBanner>
   );
 }

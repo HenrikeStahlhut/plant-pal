@@ -6,7 +6,7 @@ import { WrapperLink } from "../WrapperLink/WrapperLink.styled";
 
 export default function TaskInfo() {
   // @ts-ignore
-  const [isCompleted, setIsCompleted] = useState(false);
+  const [isCompleted, setIsCompleted] = useState(true);
 
   const completedText = isCompleted
     ? "All tasks completed"

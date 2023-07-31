@@ -15,7 +15,7 @@ export enum DeleteButtonContentType {
   PLANT = "PLANT",
 }
 
-//? Room/Plant lowercase?
+// ? Room/Plant lowercase?
 type DeleteButtonProps = {
   contentType: DeleteButtonContentType;
   handleDelete: () => void;
@@ -79,6 +79,8 @@ export default function DeleteButton({
         )}
       </>
     );
+  } else {
+    throw new Error("Unexpected type for delete button");
   }
 
   // delete plant
@@ -117,5 +119,7 @@ export default function DeleteButton({
         )}
       </>
     );
+  } else {
+    throw new Error("Unexpected type for delete button");
   }
 }

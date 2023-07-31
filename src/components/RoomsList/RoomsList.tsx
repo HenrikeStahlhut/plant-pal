@@ -11,29 +11,27 @@ type RoomsListProps = {
 
 export default function RoomsList({ rooms }: RoomsListProps) {
   return (
-    <>
-      <RoomsContainer>
-        {rooms.map((room, index) => (
-          <Link
-            href={`${ROUTES.ROOMS_OVERVIEW}/${room.id}`}
-            key={index}
-            className="link"
-          >
-            <StyledCard key={index}>
-              <Image
-                className="styledImage"
-                src={`/rooms/${room.type}.png`}
-                alt={`Image of ${room.name}`}
-                width={130}
-                height={130}
-              />
-              <StyledRoomDetails>
-                <p className="cardHeadline">{room.name}</p>
-              </StyledRoomDetails>
-            </StyledCard>
-          </Link>
-        ))}
-      </RoomsContainer>
-    </>
+    <RoomsContainer>
+      {rooms.map((room, index) => (
+        <Link
+          href={`${ROUTES.ROOMS_OVERVIEW}/${room.id}`}
+          key={index}
+          className="link"
+        >
+          <StyledCard key={index}>
+            <Image
+              className="styledImage"
+              src={`/rooms/${room.type}.png`}
+              alt={`Image of ${room.name}`}
+              width={130}
+              height={130}
+            />
+            <StyledRoomDetails>
+              <p className="cardHeadline">{room.name}</p>
+            </StyledRoomDetails>
+          </StyledCard>
+        </Link>
+      ))}
+    </RoomsContainer>
   );
 }
