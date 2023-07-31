@@ -3,8 +3,8 @@ import { RoomType } from "@prisma/client";
 export const formatRoomType = (roomType: RoomType): string => {
   switch (roomType) {
     default:
-    case RoomType.INVALID:
-      return "Invalid room type";
+    case RoomType.OTHER:
+      return "Other";
     case RoomType.KITCHEN:
       return "Kitchen";
     case RoomType.BATHROOM:

@@ -12,7 +12,6 @@ datasource db {
 //
 
 enum RoomType {
-  INVALID
   KITCHEN
   LIVING_ROOM
   BEDROOM
@@ -20,14 +19,15 @@ enum RoomType {
   DINING_ROOM
   HALLWAY
   OFFICE
+  OTHER
 }
 
 model Plant {
   id String @id @default(uuid())
 
   name   String
-  Room   Room?   @relation(fields: [roomId], references: [id])
-  roomId String?
+  Room   Room   @relation(fields: [roomId], references: [id])
+  roomId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
