@@ -51,7 +51,7 @@ export default function AddRoomModal() {
     setError(null);
   };
 
-  //TODO: <br> to margin
+  // TODO: <br> to margin
 
   return (
     <>

@@ -56,7 +56,6 @@ export default function ChangeRoomsButton() {
       return;
     }
 
-    //? name und roomid uebergeben?
     fetch(`/api/plants/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },

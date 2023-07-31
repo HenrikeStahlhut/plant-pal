@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TaskInfoCard } from "./TaskInfo.styled";
 import { WrapperLink } from "../WrapperLink/WrapperLink.styled";
 
-//TODO: Add Icons for completed and uncompleted tasks, add logic
+// TODO: Add Icons for completed and uncompleted tasks, add logic
 
 export default function TaskInfo() {
   // @ts-ignore

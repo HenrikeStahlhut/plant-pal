@@ -54,7 +54,7 @@ export default async function async(
     return res.status(200).json({ success: "Deleted plant" });
   }
 
-  //TODO: how to update only name/type?
+  // TODO: how to update only name/type?
   // PUT
   if (req.method === "PUT") {
     if (!(req.body.name || req.body.roomId)) {
