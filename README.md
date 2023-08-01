@@ -1,38 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1>About this project </h3><img src="https://img.shields.io/badge/status-in%20progress-green">
 
-## Getting Started
+<p>
+  This is the updated version of my <strong><a href="https://github.com/HenrikeStahlhut/capstone-project">final project</a></strong> for the web development bootcamp i did with <a href="https://www.neuefische.de/en">neuefische</a>. 
+  <br/>
+  Refactoring the whole project gave me new perspectives on my code, especially on the backend side. I also got to improve my components and how i want the features to work. In addition to the new features and upgrading to a responsive design, I worked with Typescript, Prisma and Postgres this time. 
+</p>
 
-First, run the development server:
+<br/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## 🌱 Introducing PlantPal: your personal houseplant companion 
+Transform the way you nurture and care for your beloved houseplants with PlantPal, the app designed to help you track, 
+manage, and grow your indoor plants. Whether you're a seasoned plant enthusiast or just starting your green journey, 
+PlantPal will be your trusted companion every step of the way.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Plant-Pal_Screenshots](https://github.com/HenrikeStahlhut/plant-pal-dirty/assets/126799897/0aee665e-7816-407a-9bea-7d9a318211aa)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<br/>
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Planned Features
+Since the project is still in progress, here are some features I plan to implement in the near future:
+- additional information for every plant, like  info about, watering, soil, light conditions etc.
+- custom image for each plant
+- working todos
+  - adding todos to rooms/plants
+  - watering and repotting schedules with a todo plan, so every plant gets the care it needs
+  - reminders for your todos
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<br/>
 
-## Learn More
+## Built with
+[![Built with](https://skillicons.dev/icons?i=react,nextjs,ts,styledcomponents,prisma,postgres)](https://skillicons.dev)
 
-To learn more about Next.js, take a look at the following resources:
+<br/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Find me here: 
+<a href="https://www.linkedin.com/in/henrike-stahlhut-389238249/">![LinkedIN](https://skillicons.dev/icons?i=linkedin)</a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br/>
 
-## Deploy on Vercel
+##  Local setup
+1. Copy the `.env.example` file and name it `.env`, it already contains the database connection details for running the project locally
+2. Run `docker compose up -d` to start the database in the background
+3. Run `pnpm run db:migrate` to run the migrations for the local database
+4. Start the server via `pnpm run start:dev` and go to: [http://localhost:3000/plants](http://localhost:3000/plants)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
