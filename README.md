@@ -13,7 +13,8 @@ Transform the way you nurture and care for your beloved houseplants with PlantPa
 manage, and grow your indoor plants. Whether you're a seasoned plant enthusiast or just starting your green journey, 
 PlantPal will be your trusted companion every step of the way.
 
-![Plant-Pal_Screenshots](https://github.com/HenrikeStahlhut/plant-pal-dirty/assets/126799897/0aee665e-7816-407a-9bea-7d9a318211aa)
+![Plant-Pal_Screenshots](https://github.com/HenrikeStahlhut/plant-pal/assets/126799897/24fa95d5-5a52-40eb-94a0-02a1df9b0803)
+
 
 
 <br/>
