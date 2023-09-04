@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 // TODO: add media query for desktop view
 
+// ! old design
+
 export const Container = styled.div`
   /* display: flex;
   flex-direction: column; */

@@ -14,12 +14,14 @@ import {
 import useSWR, { mutate } from "swr";
 import { GetRoomsSuccessResponse } from "@/pages/api/rooms";
 import { fetcher } from "@/lib/fetcher";
-import { Room } from "@prisma/client";
+import { PlantType, Room } from "@prisma/client";
+import { formatPlantType } from "@/lib/formatPlantTypes";
 
 export default function AddPlantModal() {
   const [modalOpen, setModalOpen] = useState(false);
   const [name, setName] = useState("");
   const [roomId, setRoomId] = useState<Room["id"] | null>(null);
+  const [type, setType] = useState<PlantType | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
 
   const { data, error, isLoading } = useSWR<GetRoomsSuccessResponse>(
@@ -63,7 +65,7 @@ export default function AddPlantModal() {
   };
 
   // ?: Error not working? useState(null) not working
-
+  // TODO: <br> to margin
   return (
     <>
       <StyledOpenBtn onClick={toggleModal}>Add Plant</StyledOpenBtn>
@@ -73,7 +75,7 @@ export default function AddPlantModal() {
           <StyledModal>
             <StyledModalContent>
               <StyledModalHeadline>Add Plant</StyledModalHeadline>
-
+              {/* -- Name Plant --  */}
               <StyledLabel htmlFor="name">Name</StyledLabel>
               <StyledInput
                 type="text"
@@ -85,6 +87,7 @@ export default function AddPlantModal() {
                 autoComplete="off"
               ></StyledInput>
               <br />
+              {/* -- Select Room --  */}
               <StyledLabel htmlFor="roomId">Room</StyledLabel>
               <StyledSelect
                 id="roomId"
@@ -102,6 +105,21 @@ export default function AddPlantModal() {
                 ))}
               </StyledSelect>
               <br />
+              {/* -- Select Planttype --  */}
+              <StyledLabel htmlFor="planttype">Plant type</StyledLabel>
+              <StyledSelect
+                id="planttype"
+                name="planttype"
+                value={type ?? ""}
+                onChange={(e) => setType(e.target.value as PlantType)}
+              >
+                {Object.values(PlantType).map((type, index) => (
+                  <option key={index} value={type}>
+                    {formatPlantType(type)}
+                  </option>
+                ))}
+              </StyledSelect>
+
               <StyledAddButton type="submit" onClick={handleAddPlant}>
                 Add
               </StyledAddButton>
@@ -114,3 +132,5 @@ export default function AddPlantModal() {
     </>
   );
 }
+
+console.log(Object.values(PlantType));

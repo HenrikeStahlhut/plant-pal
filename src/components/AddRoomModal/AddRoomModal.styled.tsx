@@ -63,6 +63,7 @@ export const StyledAddButton = styled.button`
   border-radius: 20px;
   padding: 7px;
   background-color: var(--dark-green);
+  margin-top: 20px;
 `;
 
 export const StyledConfirmButton = styled.button`

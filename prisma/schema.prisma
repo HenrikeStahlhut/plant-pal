@@ -25,9 +25,18 @@ enum RoomType {
 model Plant {
   id String @id @default(uuid())
 
-  name   String
-  Room   Room   @relation(fields: [roomId], references: [id])
-  roomId String
+  name         String
+  Room         Room          @relation(fields: [roomId], references: [id])
+  roomId       String
+  wateringJobs WateringJob[]
+
+  wateringScheduleMonday    Boolean @default(false)
+  wateringScheduleTuesday   Boolean @default(false)
+  wateringScheduleWednesday Boolean @default(false)
+  wateringScheduleThursday  Boolean @default(false)
+  wateringScheduleFriday    Boolean @default(false)
+  wateringScheduleSaturday  Boolean @default(false)
+  wateringScheduleSunday    Boolean @default(false)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
@@ -39,6 +48,16 @@ model Room {
   name   String
   type   RoomType
   plants Plant[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model WateringJob {
+  id String @id @default(uuid())
+
+  plant   Plant  @relation(fields: [plantId], references: [id])
+  plantId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
