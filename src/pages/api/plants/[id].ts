@@ -41,8 +41,25 @@ export default async function async(
     }
 
     // determine wether the plant needs to be watered today by checking todays date and comparing to the watering schedule
+    // set needsWatering to true or false
 
     let needsWatering = false;
+
+    // as const is used to make array of typed strings and not only strings (can be used instead of switch statement )
+    const needsWateringX =
+      plant[
+        (
+          [
+            "wateringScheduleSunday",
+            "wateringScheduleMonday",
+            "wateringScheduleTuesday",
+            "wateringScheduleWednesday",
+            "wateringScheduleThursday",
+            "wateringScheduleFriday",
+            "wateringScheduleSaturday",
+          ] as const
+        )[new Date().getDay()]
+      ];
 
     switch (new Date().getDay()) {
       case 0:
@@ -84,30 +101,40 @@ export default async function async(
       });
     }
 
-    // does the plant need to be watered today?
+    /* Explaination: get wateringjobs where plantId is id of current plant and createdAt is greater than or equal to today. 
+    Order by is used to sort the results by createdAt in descending order --> most recent watering jobs are first.
+    The take option is used to limit the results to the first record only. */
 
-    // If theres no need to water today, then return the plant here
-    /*
-   return res.status(200).json({
-      plant: {
-        ...plant,
-        wateringStatus: WateringStatus.NO_TODO,
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const wateringJob = await prisma.wateringJob.findFirst({
+      where: {
+        plantId: plant.id,
+        createdAt: {
+          gte: today,
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
       },
     });
-    */
-
-    // Query the latest watering job
-    // filter by plantId, createdAt after 00:00:00 today, limit 1
 
     // If there is no watering job, then return the plant here with status TODO_OPEN
-    // return res.status(200).json({ plant });
+    if (!wateringJob) {
+      return res.status(200).json({
+        plant: {
+          ...plant,
+          wateringStatus: WateringStatus.TODO_OPEN,
+        },
+      });
+    }
 
     // If there is a watering job, then return the plant with status TODO_DONE
-
     return res.status(200).json({
       plant: {
         ...plant,
-        wateringStatus: WateringStatus.NO_TODO,
+        wateringStatus: WateringStatus.TODO_DONE,
       },
     });
   }
